@@ -9,7 +9,7 @@ class EBoidOne extends EnemyBoids
   {
     float theta = vel.heading2D() + radians(90);
 
-    imageMode(CENTER);
+    shapeMode(CENTER);
     pushMatrix();
     translate(loc.x, loc.y);
     rotate(theta);

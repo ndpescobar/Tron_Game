@@ -1,7 +1,10 @@
 import java.util.*;
 int timeLapse;
+boolean playGame;
 ArrayList<EnemyBoids> enemyGOs;
+InfoUI iui;
 Hero h;
+Button butt;
 
 void setup()
 {
@@ -12,24 +15,36 @@ void setup()
 
 void draw()
 {
-
   background(#2F4F4F);
-
-  for (int i = 0; i < enemyGOs.size(); i++) {
-    enemyGOs.get(i).run();
+  //fill(20, 60, 80, 255);
+  //rect(0,0,1200,900);
+  if (playGame)
+  {
+    for (int i = 0; i < enemyGOs.size(); i++)
+    {
+      enemyGOs.get(i).run();
+    }
+    h.run();
+    iui.run();
+  }else
+  {
+    butt.run();  
   }
-  h.run();
+
   //checkEBoids();
 }
 
 void loadInits()
 {
   timeLapse = millis();
+  playGame = true;
   enemyGOs = new ArrayList<EnemyBoids>();
   h = new Hero(new PVector(width-200, height-200), 
-  new PVector(random(0, 0), random(0, 0)));
+      new PVector(random(0, 0), random(0, 0)));
+  iui = new InfoUI();
   createGOs("E1", 21);
   createGOs("E2", 3);
+  butt = new Button(new PVector(width/2, height/2), 650, 200, "Don't Touch MY BOOTY!");
 }
 
 void createGOs(String name, int n)
@@ -82,6 +97,47 @@ void keyPressed()
   else if (keyCode == 'D')
   {
     h.setDirection(4);
+  }
+  else if (keyCode == ' ')
+  {
+    h.setDirection(5);
+  }
+}
+
+void mouseMoved()
+{
+  if (butt.buttonHitTest(new PVector(mouseX, mouseY)))
+  {
+    butt.setColor(color(#00FA9A));
+  } 
+  else
+    butt.setColor(color(#00FF00));
+}
+
+void mousePressed()
+{
+  if (butt.buttonHitTest(new PVector(mouseX, mouseY)))
+  {
+    gameReset();
+  }
+}
+
+void gameReset()
+{
+  playGame = true;
+  timeLapse = millis();
+}
+
+void isGameOver()
+{
+  if(playGame = false)
+  {
+    for(int i = enemyGOs.size()-1; i >= 0; i--)
+    {
+      enemyGOs.remove(i);
+    }
+  h = new Hero(new PVector(width-200, height-200), 
+      new PVector(random(0, 0), random(0, 0))); 
   }
 }
 

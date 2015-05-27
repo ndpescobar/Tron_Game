@@ -49,9 +49,9 @@ class EnemyBoids
       loc.x = width;
     }
     if (loc.y > height) {
-      loc.y = 0;
+      loc.y = 89;
     }
-    else if (loc.y < 0) {
+    else if (loc.y < 89) {
       loc.y = height;
     }
   }

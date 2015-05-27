@@ -2,7 +2,7 @@ class Hero
 {
 
   PVector loc, vel;
-  boolean up, down, left, right;
+  boolean up, down, left, right, stop;
 
   Hero(PVector loc, PVector vel)
   {
@@ -54,6 +54,11 @@ class Hero
       vel.set(3, 0);
       loc.add(vel);
     }
+    else if (stop == true)
+    {
+      vel.set(0, 0);
+      loc.add(vel);
+    }
   }
 
   void setDirection(int d)
@@ -62,6 +67,7 @@ class Hero
     down = false;
     left = false;
     right = false;
+    stop = false;
 
     switch(d)
     {
@@ -77,21 +83,23 @@ class Hero
     case 4:
       right = true;
       break;
+    case 5:
+      stop = true;  
+      break;
     }
   }
 
   //one check for death
-  boolean checkEdges()
+  void checkEdges()
   {
     if (loc.x > width || loc.x < 0) {
       println("Hero is dead X");
-      return true;
+      playGame = false;
     }
-    if (loc.y > height || loc.y < 0) {
+    if (loc.y > height || loc.y < 89) {
       println("Hero is dead Y");
-      return true;
+      playGame = false;
     }
-    return false;
   }
 }
 

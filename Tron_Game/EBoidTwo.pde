@@ -7,7 +7,7 @@ class EBoidTwo extends EnemyBoids
 
   void display()
   {
-    imageMode(CENTER);
+    shapeMode(CENTER);
     pushMatrix();
     translate(loc.x + 50, loc.y + 50);
     fill(#6A5ACD);
@@ -15,5 +15,10 @@ class EBoidTwo extends EnemyBoids
     rect(0, 0, 18, 18, 5);
     popMatrix();
   }
+  
+  //void spawnEOne()
+  //{
+  //  
+  //}
 }
 
