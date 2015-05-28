@@ -2,6 +2,7 @@ import java.util.*;
 int timeLapse;
 boolean playGame;
 ArrayList<EnemyBoids> enemyGOs;
+ArrayList<Trail> heroBoids;
 InfoUI iui;
 Hero h;
 Button butt;
@@ -25,10 +26,15 @@ void draw()
       enemyGOs.get(i).run();
     }
     h.run();
+    for (int i = 0; i < heroBoids.size(); i++)
+    {
+      heroBoids.get(i).run();
+    }
     iui.run();
-  }else
+  }
+  else
   {
-    butt.run();  
+    butt.run();
   }
 
   //checkEBoids();
@@ -39,12 +45,14 @@ void loadInits()
   timeLapse = millis();
   playGame = true;
   enemyGOs = new ArrayList<EnemyBoids>();
+  heroBoids = new ArrayList<Trail>(4);
   h = new Hero(new PVector(width-200, height-200), 
-      new PVector(random(0, 0), random(0, 0)));
+  new PVector(random(0, 0), random(0, 0)));
   iui = new InfoUI();
   createGOs("E1", 21);
   createGOs("E2", 3);
-  butt = new Button(new PVector(width/2, height/2), 650, 200, "Don't Touch MY BOOTY!");
+  createGOs("HB", 4);
+  butt = new Button(new PVector(width/4, height/4), 650, 200, "Don't Touch MY BOOTY!");
 }
 
 void createGOs(String name, int n)
@@ -55,6 +63,7 @@ void createGOs(String name, int n)
     {
       enemyGOs.add(new EBoidOne(new PVector(random(10, 300), random(10, 300)), 
       new PVector(random(-2, 2), random(-2, 2))));
+      println("E1 spawned");
     }
   }
   if (name.equals("E2"))
@@ -64,6 +73,15 @@ void createGOs(String name, int n)
       enemyGOs.add(new EBoidTwo(new PVector(random(10, 300), random(10, 300)), 
       new PVector(random(-2, 2), random(-2, 2))));
       println("E2 spawned");
+    }
+  }
+  if (name.equals("HB"))
+  {
+    for (int i = 0; i < n; i++)
+    {
+      heroBoids.add(new Trail(new PVector(width-177, height-177), 
+      new PVector(random(0, 0), random(0, 0))));
+      println("HB spawned");
     }
   }
 }
@@ -85,22 +103,42 @@ void keyPressed()
   if (keyCode == 'W')
   {
     h.setDirection(1);
+    for (int i = 0; i < heroBoids.size(); i++)
+    {
+      heroBoids.get(i).setDirection(1);
+    }
   } 
   else if (keyCode == 'S')
   {
     h.setDirection(2);
+    for (int i = 0; i < heroBoids.size(); i++)
+    {
+      heroBoids.get(i).setDirection(2);
+    }
   }
   else if (keyCode == 'A')
   {
     h.setDirection(3);
+    for (int i = 0; i < heroBoids.size(); i++)
+    {
+      heroBoids.get(i).setDirection(3);
+    }
   }
   else if (keyCode == 'D')
   {
     h.setDirection(4);
+    for (int i = 0; i < heroBoids.size(); i++)
+    {
+      heroBoids.get(i).setDirection(4);
+    }
   }
   else if (keyCode == ' ')
   {
     h.setDirection(5);
+    for (int i = 0; i < heroBoids.size(); i++)
+    {
+      heroBoids.get(i).setDirection(5);
+    }
   }
 }
 
@@ -124,20 +162,6 @@ void mousePressed()
 
 void gameReset()
 {
-  playGame = true;
-  timeLapse = millis();
-}
-
-void isGameOver()
-{
-  if(playGame = false)
-  {
-    for(int i = enemyGOs.size()-1; i >= 0; i--)
-    {
-      enemyGOs.remove(i);
-    }
-  h = new Hero(new PVector(width-200, height-200), 
-      new PVector(random(0, 0), random(0, 0))); 
-  }
+  loadInits();
 }
 

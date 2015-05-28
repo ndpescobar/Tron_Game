@@ -1,4 +1,5 @@
-class Button {
+class Button 
+{
   PVector loc;
   int w, h;
   String text;
@@ -23,6 +24,7 @@ class Button {
     background(#008B8B);
     fill(c);
     rect(loc.x, loc.y, w, h, 10);
+    textSize(36);
     fill(#7B68EE);
     text(text, loc.x + 25, loc.y + 90);
   }
@@ -30,9 +32,9 @@ class Button {
   boolean buttonHitTest(PVector mouseLoc)
   {
     if (mouseLoc.x >= loc.x &&
-        mouseLoc.x <= loc.x + w &&
-        mouseLoc.y >= loc.y &&
-        mouseLoc.y <= loc.x + h)
+      mouseLoc.x <= loc.x + w &&
+      mouseLoc.y >= loc.y &&
+      mouseLoc.y <= loc.x + h)
     {
       return true;
     } 
@@ -44,6 +46,5 @@ class Button {
   {
     c = clr;
   }
-  
-  
 }
+

@@ -12,6 +12,7 @@ class Hero
     down = false;
     left = false;
     right = false;
+    stop = false;
   }
 
   void run()
@@ -19,11 +20,12 @@ class Hero
     display();
     update();
     checkEdges();
+    heroHitTest(new PVector(mouseX, mouseY));
   } 
 
   void display()
   {
-    imageMode(CENTER);
+    shapeMode(CENTER);
     pushMatrix();
     translate(loc.x, loc.y);
     fill(#00008B);
@@ -99,6 +101,17 @@ class Hero
     if (loc.y > height || loc.y < 89) {
       println("Hero is dead Y");
       playGame = false;
+    }
+  }
+
+  void heroHitTest(PVector mouseLoc)
+  {
+    if (mouseLoc.x >= loc.x &&
+      mouseLoc.x <= loc.x + 23 &&
+      mouseLoc.y >= loc.y &&
+      mouseLoc.y <= loc.x + 23)
+    {
+      println("mouse hits hero!");
     }
   }
 }
