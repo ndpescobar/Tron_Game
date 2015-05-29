@@ -13,8 +13,8 @@ class EBoidOne extends EnemyBoids
     pushMatrix();
     translate(loc.x, loc.y);
     rotate(theta);
-    fill(#008080);
-    stroke(#7CFC00);
+    fill(#FF6347);
+    stroke(#FF0000);
     beginShape(TRIANGLES);
     vertex(0, -r*2);
     vertex(-r, r*2);

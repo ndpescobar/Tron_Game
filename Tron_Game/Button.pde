@@ -21,12 +21,12 @@ class Button
 
   void display()
   {
-    background(#008B8B);
+    background(#B22222);
     fill(c);
     rect(loc.x, loc.y, w, h, 10);
-    textSize(36);
-    fill(#7B68EE);
-    text(text, loc.x + 25, loc.y + 90);
+    textSize(60);
+    fill(#000080);
+    text(text, loc.x + w/4, loc.y + h/2);
   }
 
   boolean buttonHitTest(PVector mouseLoc)

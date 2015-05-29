@@ -10,9 +10,9 @@ class EBoidTwo extends EnemyBoids
     shapeMode(CENTER);
     pushMatrix();
     translate(loc.x + 50, loc.y + 50);
-    fill(#6A5ACD);
-    stroke(#FF00FF);
-    rect(0, 0, 18, 18, 5);
+    fill(#FA8072);
+    stroke(#FF0000);
+    rect(0, 0, 16, 16, 5);
     popMatrix();
   }
   

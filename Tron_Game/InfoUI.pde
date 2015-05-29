@@ -13,7 +13,7 @@ class InfoUI
   void display()
   {
     fill(#ADD8E6);
-    stroke(#FF00FF);
+    stroke(#F5FFFA);
     rect(0, 0, 1200, 90);
   }
 

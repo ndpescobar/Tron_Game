@@ -19,9 +19,9 @@ class Trail extends Hero
     shapeMode(CENTER);
     pushMatrix();
     translate(loc.x, loc.y);
-    fill(#00008B);
-    stroke(#00FF00);
-    rect(0, 0, 23, 23, 3);
+    fill(#C0C0C0);
+    stroke(#00FFFF);
+    rect(0, 0, wh, wh, 3);
     popMatrix();
   }
   

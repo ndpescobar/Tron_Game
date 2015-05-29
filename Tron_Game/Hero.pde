@@ -1,6 +1,5 @@
 class Hero
 {
-
   PVector loc, vel;
   boolean up, down, left, right, stop;
 
@@ -28,9 +27,9 @@ class Hero
     shapeMode(CENTER);
     pushMatrix();
     translate(loc.x, loc.y);
-    fill(#00008B);
-    stroke(#00FF00);
-    rect(0, 0, 23, 23, 3);
+    fill(#708090);
+    stroke(#00FFFF);
+    rect(0, 0, wh, wh, 3);
     popMatrix();
   }
 
@@ -94,11 +93,11 @@ class Hero
   //one check for death
   void checkEdges()
   {
-    if (loc.x > width || loc.x < 0) {
+    if (loc.x > width-1 || loc.x < 1) {
       println("Hero is dead X");
       playGame = false;
     }
-    if (loc.y > height || loc.y < 89) {
+    if (loc.y > height-1 || loc.y < 89) {
       println("Hero is dead Y");
       playGame = false;
     }

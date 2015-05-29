@@ -1,5 +1,6 @@
 import java.util.*;
 int timeLapse;
+int wh = 20;
 boolean playGame;
 ArrayList<EnemyBoids> enemyGOs;
 ArrayList<Trail> heroBoids;
@@ -16,9 +17,9 @@ void setup()
 
 void draw()
 {
-  background(#2F4F4F);
-  //fill(20, 60, 80, 255);
-  //rect(0,0,1200,900);
+  fill(#2F4F4F, 100);
+  stroke(#F5FFFA);
+  rect(0, 0, 1200, 900);
   if (playGame)
   {
     for (int i = 0; i < enemyGOs.size(); i++)
@@ -49,10 +50,10 @@ void loadInits()
   h = new Hero(new PVector(width-200, height-200), 
   new PVector(random(0, 0), random(0, 0)));
   iui = new InfoUI();
-  createGOs("E1", 21);
-  createGOs("E2", 3);
+  createGOs("E1", 22);
+  createGOs("E2", 4);
   createGOs("HB", 4);
-  butt = new Button(new PVector(width/4, height/4), 650, 200, "Don't Touch MY BOOTY!");
+  butt = new Button(new PVector(width/4, height/4), 650, 200, "Play Again?");
 }
 
 void createGOs(String name, int n)
@@ -77,10 +78,12 @@ void createGOs(String name, int n)
   }
   if (name.equals("HB"))
   {
+    int boidW = 180;
     for (int i = 0; i < n; i++)
     {
-      heroBoids.add(new Trail(new PVector(width-177, height-177), 
+      heroBoids.add(new Trail(new PVector(width-boidW, height-200), 
       new PVector(random(0, 0), random(0, 0))));
+      boidW -= 20;
       println("HB spawned");
     }
   }
@@ -146,10 +149,10 @@ void mouseMoved()
 {
   if (butt.buttonHitTest(new PVector(mouseX, mouseY)))
   {
-    butt.setColor(color(#00FA9A));
+    butt.setColor(color(#FFA500));
   } 
   else
-    butt.setColor(color(#00FF00));
+    butt.setColor(color(#FF4500));
 }
 
 void mousePressed()
