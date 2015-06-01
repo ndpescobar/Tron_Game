@@ -168,3 +168,21 @@ void gameReset()
   loadInits();
 }
 
+void spawnEBoids()
+{
+  
+}
+
+void trailKillEBoids()
+{
+  // trail arraylist heroBoids
+  for()
+  {
+    // enemy arrayList enemyGOs
+      for()
+      {
+        
+      }
+  }
+}
+
