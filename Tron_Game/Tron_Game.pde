@@ -10,7 +10,7 @@ Button butt;
 
 void setup()
 {
-  size(1200, 900);
+  size(990, 650);
   background(#00FF00);
   loadInits();
 }
@@ -52,8 +52,8 @@ void loadInits()
   iui = new InfoUI();
   createGOs("E1", 22);
   createGOs("E2", 4);
-  createGOs("HB", 4);
-  butt = new Button(new PVector(width/4, height/4), 650, 200, "Play Again?");
+  //createGOs("HB", 4);
+  butt = new Button(new PVector(width/5-20, height/5), 650, 200, "Play Again?");
 }
 
 void createGOs(String name, int n)
@@ -173,16 +173,16 @@ void spawnEBoids()
   
 }
 
-void trailKillEBoids()
-{
-  // trail arraylist heroBoids
-  for()
-  {
-    // enemy arrayList enemyGOs
-      for()
-      {
-        
-      }
-  }
-}
+//void trailKillEBoids()
+//{
+//  // trail arraylist heroBoids
+//  for()
+//  {
+//    // enemy arrayList enemyGOs
+//      for()
+//      {
+//        
+//      }
+//  }
+//}
 

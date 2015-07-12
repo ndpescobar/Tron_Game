@@ -97,7 +97,7 @@ class Hero
       println("Hero is dead X");
       playGame = false;
     }
-    if (loc.y > height-1 || loc.y < 89) {
+    if (loc.y > height-1 || loc.y < 71) {
       println("Hero is dead Y");
       playGame = false;
     }

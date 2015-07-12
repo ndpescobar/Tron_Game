@@ -14,7 +14,7 @@ class InfoUI
   {
     fill(#ADD8E6);
     stroke(#F5FFFA);
-    rect(0, 0, 1200, 90);
+    rect(0, 0, 990, 65);
   }
 
   void update()
